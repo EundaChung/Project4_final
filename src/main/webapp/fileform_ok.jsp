@@ -1,3 +1,6 @@
+<%@ page import="java.io.File" %>
+<%@ page import="com.oreilly.servlet.MultipartRequest" %>
+<%@ page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
 <%--
   Created by IntelliJ IDEA.
   User: eunda
@@ -12,6 +15,24 @@
 </head>
 <body>
 fileform_ok.jsp
+<%
+    String filename= "";
+    int sizeLimit = 15 * 1024 * 1024;
+
+    String realPath = request.getServletContext().getRealPath("upload");
+    File dir = new File(realPath);
+    if(!dir.exists()) {
+        dir.mkdirs();
+    }
+
+    MultipartRequest multipartRequest = null;
+    multipartRequest = new MultipartRequest(request, realPath, sizeLimit, "utf-8", new DefaultFileRenamePolicy());
+
+    filename = multipartRequest.getFilesystemName("img1");
+%>
+파일명 : <%=filename%> <br/>
+<img src ="${pageContext.request.contextPath}/upload/<%=filename%>">
+
 
 
 </body>

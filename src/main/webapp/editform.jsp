@@ -16,14 +16,19 @@
 %>
 
 <h1>Edit Form</h1>
-<form action="editpost.jsp" method="post">
+<form action="editmenu.jsp" method="post">
 <input type="hidden" name="seq" value="<%=u.getSeq() %>"/>
 <table>
-<tr><td>Title:</td><td><input type="text" name="title" value="<%= u.getTitle()%>"/></td></tr>
-<tr><td>Writer:</td><td><input type="text" name="writer" value="<%= u.getWriter()%>" /></td></tr>
-<tr><td>Content:</td><td><textarea cols="50" rows="5" name="content"><%= u.getContent()%></textarea></td></tr>
-<tr><td colspan="2"><input type="submit" value="Edit Post"/>
-<input type="button" value="Cancel" onclick="history.back()"/></td></tr>
+<tr><td>식당 이름:</td><td><input type="text" name="title" value="<%= u.getTitle()%>"/></td></tr>
+<%--<tr><td>식당 위치:</td><td><input type="text" name="writer" value="<%= u.getWriter()%>" /></td></tr>--%>
+	<tr><td>식당 위치:</td><td><select name="writer" id="writer" name="writer">
+		<option value="514 학생회관">514 학생회관</option>
+		<option value="514 맘스키친">514 맘스키친</option>
+		<option value="511 복지동">511 복지동</option>
+		<option value="302 김영길 그레이스 스쿨">302 김영길 그레이스 스쿨</option></td></tr>
+	<tr><td>메뉴:</td><td><textarea cols="50" rows="5" name="content"><%= u.getContent()%></textarea></td></tr>
+<tr><td colspan="2"><input type="submit" value="수정"/>
+<input type="button" value="취소" onclick="history.back()"/></td></tr>
 </table>
 </form>
 
