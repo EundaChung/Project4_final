@@ -10,5 +10,5 @@
 		BoardDAO boardDAO = new BoardDAO();
 		boardDAO.deleteBoard(u);
 	}
-	response.sendRedirect("menulist.jsp");
+	response.sendRedirect("index.jsp");
 %>

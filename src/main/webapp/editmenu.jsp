@@ -10,5 +10,5 @@
 <%
 	BoardDAO boardDAO = new BoardDAO();
 	int i=boardDAO.updateBoard(u);
-	response.sendRedirect("menulist.jsp");
+	response.sendRedirect("index.jsp");
 %>
